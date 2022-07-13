@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cart</title>
+</head>
+<body>
+<p>a cart that is under construction...</p>
+{% if user.is_authenticated %}
+    <p>checkout methods awaiting...</p>
+    {% else %}
+    <p>Please sign up or log in!</p>
+    <a href="{%  url 'TheSaleSite:signup' %}">
+        <button>Sign up</button>
+    </a>
+    <a href="{%  url 'TheSaleSite:login' %}">
+        <button>Log in</button>
+    </a>
+{% endif %}
+<a href="{%  url 'TheSaleSite:listing' %}">
+    <button>listing</button>
+</a>
+<a href="{%  url 'TheSaleSite:products' %}">
+    <button>products</button>
+</a>
+<a href="{%  url 'TheSaleSite:index' %}">
+    <button>index</button>
+</a>
+</body>
+</html>

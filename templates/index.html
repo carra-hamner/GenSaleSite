@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>index</title>
+</head>
+<body>
+    {% if user.is_authenticated %}
+        <p>Welcome, {{ user.username }}</p>
+        <a href="{%  url 'TheSaleSite:products' %}">I want to buy</a>
+        <a href="{%  url 'TheSaleSite:listing' %}">I want to sell</a>
+        <a href="{% url 'TheSaleSite:logout' %}">
+            <button>logout</button>
+        </a>
+
+    {% else %}
+        <a href="{%  url 'TheSaleSite:signup_or_login_redirect' %}">I want to buy</a>
+        <a href="{%  url 'TheSaleSite:signup_or_login_redirect' %}">I want to sell</a>
+        <a href="{%  url 'TheSaleSite:signup' %}">
+            <button>Sign up</button>
+        </a>
+        <a href="{%  url 'TheSaleSite:login' %}">
+            <button>Log in</button>
+        </a>
+    {% endif %}
+    <a href="{%  url 'TheSaleSite:products' %}">
+        <button>products</button>
+    </a>
+    <a href="{%  url 'TheSaleSite:listing' %}">
+        <button>listing</button>
+    </a>
+</body>
+</html>

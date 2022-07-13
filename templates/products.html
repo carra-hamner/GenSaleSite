@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>products</title>
+</head>
+<body>
+    <p>
+        {% for listing in all_listing %}
+            <p>{{ listing.name }}</p>
+            <p>{{ listing.contact_email }}</p>
+            <p>{{ listing.list_option }}</p>
+            <p>{{ listing.price }}</p>
+            <p>{{ listing.description }}</p>
+            <p>------------------------</p>
+            {% if user.is_authenticated %}
+                <a href="{%  url 'TheSaleSite:cart' %}">
+                <button>Add to cart</button>
+            </a>
+            {% endif %}
+        {% endfor %}
+    </p>
+    <a href="{%  url 'TheSaleSite:listing' %}">
+        <button>listing</button>
+    </a>
+    <a href="{%  url 'TheSaleSite:index' %}">
+        <button>index</button>
+    </a>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<h2>Listing</h2>
+{% if user.is_authenticated %}
+     <form method='POST' action = '{% url "TheSaleSite:listing" %}'>
+        {% csrf_token %}
+         {% for field in list_form %}
+          <p>
+            {{ field.label_tag }}<br>
+            {{ field }}
+            {% if field.help_text %}
+              <small style="color: grey">{{ field.help_text }}</small>
+            {% endif %}
+            {% for error in field.errors %}
+              <p style="color: red">{{ error }}</p>
+            {% endfor %}
+          </p>
+        {% endfor %}
+        <button type="submit">Post Your Listing</button>
+     </form>
+{% else %}
+    <p>You are not logged in</p>
+    <a href="{%  url 'TheSaleSite:signup' %}">
+            <button>Sign up</button>
+    </a>
+    <a href="{%  url 'TheSaleSite:login' %}">
+        <button>Log in</button>
+    </a>
+{% endif %}
+<a href="{%  url 'TheSaleSite:listing' %}">
+    <button>listing</button>
+</a>
+<a href="{%  url 'TheSaleSite:products' %}">
+    <button>products</button>
+</a>
+<a href="{%  url 'TheSaleSite:index' %}">
+    <button>index</button>
+</a>
